@@ -1,5 +1,9 @@
 package org.hellfire.designpatterns;
 
+import org.hellfire.designpatterns.designPatterns.creational.abstractFactoryDesign.Application;
+import org.hellfire.designpatterns.designPatterns.creational.abstractFactoryDesign.DarkThemeFactory;
+import org.hellfire.designpatterns.designPatterns.creational.abstractFactoryDesign.LightThemeFactory;
+import org.hellfire.designpatterns.designPatterns.creational.abstractFactoryDesign.UIFactory;
 import org.hellfire.designpatterns.designPatterns.creational.builderDesign.User;
 import org.hellfire.designpatterns.designPatterns.creational.factoryMethodDesign.Notification;
 import org.hellfire.designpatterns.designPatterns.creational.singletonDesign.Singleton;
@@ -25,6 +29,10 @@ public class DesignPatternsApplication {
 
         Notification notification = createNotification("email");
         notification.sendNotification();
+
+        UIFactory uiFactory = new LightThemeFactory();
+        Application application = new Application(uiFactory);
+        application.display();
         SpringApplication.run(DesignPatternsApplication.class, args);
     }
 
